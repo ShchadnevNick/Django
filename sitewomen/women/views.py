@@ -13,7 +13,7 @@ def categories(request, cat_slug):
 
 def archive(request, year):
     if year > 2025:
-        raise Http404
+        raise Http404  
 
     return HttpResponse(f'Страница с архивом {year} года')
 
