@@ -10,5 +10,5 @@ urlpatterns = [
     path('', index),
     path('about/', about),
     path('cats/<slug:cat_slug>/', categories),
-    path('archive/<year4:year>/', archive)
+    path('archive/<year4:year>/', archive)  
 ]
