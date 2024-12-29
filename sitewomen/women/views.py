@@ -16,7 +16,7 @@ def archive(request, year):
         url_redirect = reverse('cats', args=('music',))
         return HttpResponsePermanentRedirect(url_redirect)
 
-    return HttpResponse(f'Страница с архивом {year} года')
+    return HttpResponse(f'Страница с архивом {year} года') 
 
 def page_not_found(request, exception):
     return HttpResponseNotFound('<h1>Страница не найдена!</h1>')
