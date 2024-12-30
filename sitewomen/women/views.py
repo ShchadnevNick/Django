@@ -23,7 +23,7 @@ def index(request):
     return render(request, 'women/index.html', data)
 
 def about(request):
-    return render(request, 'women/about.html', {'title': 'О сайте', 'menu': menu})
+    return render(request, 'base.html', {'title': 'О сайте', 'menu': menu})
 
 def addpage(request):
     return HttpResponse("Добавление статьи")
