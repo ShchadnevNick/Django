@@ -2,7 +2,11 @@ from django.http import HttpResponse
 from django.shortcuts import render
 
 
-menu = ["О сайте", "Добавить статью", "Обратная связь", "Войти"]
+menu = [{'title': "О сайте", 'url_name': 'about'},
+        {'title': "Добавить статью", 'url_name': 'add_page'},
+        {'title': "Обратная связь", 'url_name': 'contact'},
+        {'title': "Войти", 'url_name': 'login'}
+]
 
 data_db = [
     {'id': 1, 'title': 'Анджелина Джоли', 'content': 'Биография Анджелины Джоли', 'is_published': True},
@@ -19,6 +23,16 @@ def index(request):
     return render(request, 'women/index.html', data)
 
 def about(request):
-    data = {'title': 'О сайте'}
-    return render(request, 'women/about.html', data)
+    return render(request, 'women/about.html', {'title': 'О сайте', 'menu': menu})
 
+def addpage(request):
+    return HttpResponse("Добавление статьи")
+
+def contact(request):
+    return HttpResponse("Обратная связь")
+
+def login(request):
+    return HttpResponse("Авторизация")
+
+def show_post(request, post_id):
+    return HttpResponse(f'Отображение статьи с id = {post_id}')

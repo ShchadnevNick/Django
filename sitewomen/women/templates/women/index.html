@@ -7,16 +7,11 @@
     <p >{{menu| join:'|'}}</p>
     <h1>{{title}}</h1>
 <ul>
-    {% for p in posts %}
-    {% if p.is_published %}
-        <li>
-            <h2>{{p.title}}</h2>
-            <p>{{p.content}}</p>
-            {% if not forloop.last %}
-            <hr>
-            {% endif %}
-        </li>
-    {% endif %}
+    <li><a href="{% url 'home' %}">Главная</a></li>
+    {% for m in menu %}
+    {% if not forloop.last %}<li>{% else %}<li class="last">{% endif %}
+             <a href="{% url m.url_name %}">{{m.title}}</a>
+    </li>
     {% endfor %}
 </ul>
 
